@@ -11,7 +11,7 @@ for n_estimators in range(1, 120):
     val_error = mean_squared_error(y_val, y_pred)
     if val_error < min_val_error:
         min_val_error = val_error
-    error_going_up = 0
+        error_going_up = 0
     else:
         error_going_up += 1
         if error_going_up == 5:
