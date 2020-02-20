@@ -1,5 +1,4 @@
 from sklearn.ensemble import GradientBoostingRegressor
-
 gbrt = GradientBoostingRegressor(max_depth=2, warm_start=True)
 min_val_error = float("inf")
 error_going_up = 0
