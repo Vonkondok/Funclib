@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# author:洪卫
+# author:https://www.cnblogs.com/shwee/p/9427975.html
  
 import tkinter as tk  # 使用Tkinter前需要先导入
 import tkinter.messagebox
