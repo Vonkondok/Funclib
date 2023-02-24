@@ -1,0 +1,44 @@
+from openpyxl import load_workbook
+
+# 打开Excel文件
+workbook = load_workbook(filename='example.xlsx')
+
+# 选择要读取的工作表
+worksheet = workbook['Sheet1']
+
+# 遍历每行数据
+for row in worksheet.iter_rows(min_row=1, max_row=worksheet.max_row, values_only=True):
+    # 遍历每个单元格
+    for index, cell in enumerate(row):
+        # 检查单元格是否属于合并单元格
+        if cell is not None and worksheet.cell(row=cell.row, column=cell.column).is_merged:
+            # 获取合并单元格的值
+            merged_cell_value = worksheet.cell(row=cell.row, column=cell.column).value
+            # 将合并单元格的值赋给当前单元格
+            row[index] = merged_cell_value
+    # 打印每行数据
+    print(row)
+
+"""
+from openpyxl import load_workbook
+
+# Open the Excel file
+workbook = load_workbook(filename='example.xlsx')
+
+# Select the worksheet to read
+worksheet = workbook['Sheet1']
+
+# Loop through each row of data
+for row in worksheet.iter_rows(min_row=1, max_row=worksheet.max_row, values_only=True):
+    # Loop through each cell in the row
+    for index, cell in enumerate(row):
+        # Check if the cell belongs to a merged cell
+        if cell is not None and worksheet.cell(row=cell.row, column=cell.column).is_merged:
+            # Get the value of the merged cell
+            merged_cell_value = worksheet.cell(row=cell.row, column=cell.column).value
+            # Assign the value of the merged cell to the current cell
+            row[index] = merged_cell_value
+    # Print each row of data
+    print(row)
+
+"""
